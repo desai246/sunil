@@ -1,0 +1,184 @@
+4  yum install wget
+    5  clear
+    6  java
+    7  yum -y install java-1.8.0-openjdk
+    8  yum -y install java-1.8.0-openjdk-devel
+    9  java
+   10  java -version
+   11  clear
+   12  cd /opt
+   13  wget http://mirrors.estointernet.in/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+   14  ls
+   15  tar xvzf apache-maven-3.6.0-bin.tar.gz -C /opt
+   16  clear
+   17  ll /opt
+   18  chown -R ec2-user:ec2-user /opt/apache-maven-3.6.0/
+   19  ll /opt
+   20  mvn
+   21  export M2_HOME=/opt/apache-maven-3.6.0/
+   22  export PATH=$PATH:$M2_HOME/bin
+   23  mvn -version
+   24  ls -a
+   25  clear
+   26  ls
+   27  ls -a
+   28  vi .bash_profile
+   29  ls
+   30  cd ..
+   31  ls
+   32  cd bash_profile
+   33  cd /opt
+   34  ls
+   35  cd apache-maven-3.6.0
+   36  ls
+   37  cd bin
+   38  ls
+   39  cd ..
+   40  cd conf
+   41  ls
+   42  cd ..
+   43  clear
+   44  mvn archetypr:generate
+   45  mvn archetype:generate
+   46  ls
+   47  cd simpleproj
+   48  ls
+   49  cd src
+   50  ls
+   51  cd main
+   52  ls
+   53  cd ..
+   54  ls
+   55  cd simpleproj
+   56  ls
+   57  cat pom.xml
+   58  cd ..
+   59  tree
+   60  yum install tree
+   61  tree simpleproj
+   62  cd ..
+   63  ls
+   64  cd /opt
+   65  ls
+   66  clear
+   67  mvn validate
+   68  ls
+   69  cd simpleproj
+   70  mvn validtae
+   71  ls
+   72  cd ..
+   73  ls
+   74  cd simpleproj
+   75  mvn validate
+   76  mvn compile
+   77  cd ..
+   78  ls
+   79  cd simpleproj
+   80  ls
+   81  cd src
+   82  ls
+   83  cd ..
+   84  cd src/main/johnlatestid/App.java
+   85  mvn test
+   86  mvn package
+   87  ls
+   88  jar -tvf target/simpleproj-1.0-SNAPSHOT.jar
+   89  jar -tvf target/simpleproj-1.0-SNAPSHOT.jar johnlatestid.App
+   90  ls
+   91  clear
+   92  ls
+   93  cd target
+   94  ls
+   95  cd ..
+   96  tree
+   97  cd ..
+   98  clear
+   99  wget http://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.34/bin/apache-tomcat-8.5.34.tar.gz
+  100  ls
+  101  tar -zvxf apche-tomcat-8.5.34.tar.gz
+  102  tar -zvxf apache-tomcat-8.5.34.tar.gz
+  103  ls
+  104  cd apache-tomcat-8.5.34
+  105  ls
+  106  cd bin
+  107  ls
+  108  ls -ltr
+  109  chmod +x startup.sh
+  110  chmod +x shutdown.sh
+  111  ls -ltr
+  112  clear
+  113  ./startup.sh
+  114  ln -s /opt/apache-tomcat-8.5.34/bin/startup.sh /usr/local/sbin/tomcatup
+  115  ln -s /opt/apache-tomcat-8.5.34/bin/shutdown.sh /usr/local/sbin/tomcatdown
+  116  cd ..
+  117  cd
+  118  tomcatdown
+  119  tomcatup
+  120  cd conf
+  121  cd /opt
+  122  ls
+  123  clear
+  124  ls
+  125  cd apache-tomcat-8.5.34
+  126  ls
+  127  cd conf
+  128  ls
+  129  find / -name context.xml
+  130  vi /opt/apache-tomcat-8.5.34/webapps/host-manager/META-INF/context.xml
+  131  vi /opt/apache-tomcat-8.5.34/webapps/manager/META-INF/context.xml
+  132  tomcatdown
+  133  tomcatup
+  134  cd ..
+  135  cd conf
+  136  find / -name context.xml
+  137  cd apache-tomcat-8.5.34
+  138  lsl
+  139  ls
+  140  cd conf
+  141  ls
+  142  vi tomcat-users.xml
+  143  tomctadown
+  144  tomcatdown
+  145  tomcatup
+  146  ls
+  147  clear
+  148  cd ..
+  149  ls
+  150  cd apache-maven-3.6.0
+  151  ls
+  152  cd bin
+  153  ls
+  154  cd ..
+  155  ls
+  156  cd conf
+  157  ls
+  158  cd ..
+  159  cd lib
+  160  ls
+  161  clear
+  162  ls
+  163  cd ..
+  164  clear
+  165  ls
+  166  cd ..
+  167  wget https://updates.jenkins-ci.org/download/war/2.138.3/jenkins.war
+  168  java -jar jenkins.war
+  169  ls
+  170  cd apache-tomcat-8.5.34
+  171  ls
+  172  cd conf
+  173  ls
+  174  vi server.xml
+  175  tomcatdown
+  176  tomcatup
+  177  cd..
+  178  cd ..
+  179  systemctl start jenkins
+  180  cd /opt
+  181  ls
+  182  cd jenkins.war
+  183  systemctl start jenkins
+  184  start jenkins.war
+  185  java -jar jenkins.war
+  186  clear
+  187  history
