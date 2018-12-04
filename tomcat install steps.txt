@@ -1,0 +1,62 @@
+yum install java-1.8.0
+yum install wget
+wget http://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.34/bin/apache-tomcat-8.5.34.tar.gz
+ls
+mv apache-tomcat-8.5.34.tar.gz /opt
+ls
+cd /opt
+ls
+tomcat
+ps -ef | grep tomcat
+tar -zvxf apache-tomcat-8.5.34.tar.gz
+ls
+cd apache-tomcat-8.5.34
+ls
+cd bin
+ls
+ps -ef | grep tomcat
+clear
+ls -ltr
+chmod +x startup.sh
+chmod +x shutdown.sh
+ls -ltr
+pwd
+./startup.sh
+echo $PATH
+ln -s /opt/apache-tomcat-8.5.34/bin/startup.sh /usr/local/sbin/tomcatup
+ln -s /opt/apache-tomcat-8.5.34/bin/shutdown.sh /usr/local/sbin/tomcatdown
+tomcatup
+ps -ef |grep tomcat
+ps -ef |grep tomcat-
+tomcatup
+ls
+cd ..
+ls
+cd conf
+ls
+vi server.xml
+tomctadown
+tomcatdown
+ps -ef | grep tomcat
+tomcatup
+find / -name context.xml
+vi /opt/apache-tomcat-8.5.34/webapps/manager/META-INF/context.xml     ----> there is a value class name where we have to coment the line and close comment
+vi /opt/apache-tomcat-8.5.34/webapps/host-manager/META-INF/context.xml     ----> there is a value class name where we have to coment the line and close comment
+tomcatdown
+tomcatup
+ls
+vi tomcat-users.xml                          
+
+      <role rolename="manager-gui"/>
+      <role rolename="manager-script"/>
+      <role rolename="manager-jmx"/>
+      <role rolename="manager-status"/>
+      <user username="admin" password="admin" roles="manager-gui,manager-script,manager-jmx,manager-status"/>
+      <user username="deployer" password="deployer" roles="manager-script"/>
+      <user username="tomcat" password="secrret" roles="manager-gui"/>
+tomcatdown
+tomcatup
+ls
+cd /opt
+ls
+cd apache-tomcat-8.5.34

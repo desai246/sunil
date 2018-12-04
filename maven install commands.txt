@@ -1,0 +1,55 @@
+     1  yum install wget
+    2  clear
+    3  wget
+    4  clear
+    5  java
+    6  javac
+    7  yum -y install java-1.8.0-openjdk
+    8  clear
+    9  yum -y install java-1.8.0-openjdk-devel
+   10  java
+   11  java -version
+   12  clear
+   13  wget http://mirrors.estointernet.in/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+   14  ls
+   15  tar xvfz apache-maven-3.6.0-bin.tar.gz -C /opt
+   16  clear
+   17  ll /opt
+   18  chown -R ec2-user:ec2-user /opt/apache-maven-3.6.0/
+   19  ll /opt/
+   20  mvn
+   21  export M2_HOME=/opt/apache-maven-3.6.0/
+   22  export PATH=$PATH:$M2_HOME/bin
+   23  mvn --version
+   24  ls -a
+   25 clear
+   26  vi .bash_profile
+   27  ls
+   28  mvn archetype:generate
+   29  clear
+   30  ls
+   31  cd simlejar
+   32  cd simplejar/
+   33  ls
+   34  tree .
+   35  yum -y install tree
+   36  tree .
+   37  pwd
+   38  mvn validate
+   39  mvn compile
+   40  tree .
+   41  ls
+   42  cd src
+   43  ls
+   44 cd ..
+   45  cd src/main/thunderbirds/App.java
+   46  clear
+   47  vi src/main
+   48  vi src/main/java/thunderbirds/App.java
+   49  mvn test
+   50  mvn package
+   51  ls
+   52  jar -tvf target/simplejar-1.0-SNAPSHOT.jar
+   53  java -cp target/simplejar-1.0-SNAPSHOT.jar thunderbirds.App
+   54 ls
+   55  clear
