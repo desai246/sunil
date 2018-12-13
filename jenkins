@@ -1,9 +1,24 @@
 node{
-    stage('SCM Checkout') {
-      git 'https://github.com/desai246/sunil/new/master'
+    def mvnHome = tool name: 'maven', type: 'maven'
+    def mvn = "${mvnHome}/bin/mvn"
+    def tomcatUsr = 'ec2-user'
+    stage('Git Checkout'){
+	   git credentialsId: 'gitid', 
+	   url: 'https://github.com/desai246/myweb-1'
+
     }
-    stage('Compile-Package'){
-      dev mvnHome = tool name: 'maven', type: 'maven'
-      sh "${mvnHome}/bin/mvn package"
-     }
-  }   
+	stage('Maven Build'){
+	     sh "${mvn} clean package"
+	}
+	stage('Deploy to Dev'){
+	      sh 'mv target/myweb*.war target/myweb.war'
+			sshagent(['tomcat9']) {
+		    sh "ssh ${tomcatUsr}@13.232.39.155 /opt/tomcat9/bin/shutdown.sh"
+			sh "ssh ${tomcatUsr}@13.232.39.155 rm -rf /opt/tomcat9/webapps/myweb*"
+		    sh "scp target/myweb.war ${tomcatUsr}@13.232.39.155:/opt/tomcat9/webapps/"
+		    sh "ssh ${tomcatUsr}@13.232.39.155 /opt/tomcat9/bin/startup.sh"
+			}
+
+	}
+
+}
